@@ -23,6 +23,30 @@
 
 ---
 
+## 📸 Capturas de Pantalla (Vista Previa)
+
+### 🖥️ Portal Público y Flujo de Compra
+| Vista Principal (Home) | Catálogo de Productos |
+|---|---|
+| ![Home](.github/screenshots/home.jpg) | ![Productos](.github/screenshots/productos.jpg) |
+
+| Detalle del Producto | Carrito de Compras |
+|---|---|
+| ![Detalle](.github/screenshots/detalle.jpg) | ![Carrito](.github/screenshots/carrito.jpg) |
+
+| Servicios de Impresión |
+|---|
+| ![Servicios](.github/screenshots/servicios.jpg) |
+
+### 🔐 Panel Administrativo (Backend)
+| Acceso (Login) | Panel de Control (Dashboard) |
+|---|---|
+| ![Login](.github/screenshots/login.png) | ![Dashboard](.github/screenshots/dashboard.png) |
+
+| Perfil de Usuario |
+|---|
+| ![Perfil](.github/screenshots/profile.jpg) |
+
 ## 📁 Estructura del Proyecto
 
 El repositorio mantiene una estructura desacoplada del peso muerto de dependencias locales para garantizar un despliegue ágil:
