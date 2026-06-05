@@ -28,15 +28,15 @@
 ### 🖥️ Portal Público y Flujo de Compra
 | Vista Principal (Home) | Catálogo de Productos |
 |---|---|
-| ![Home](.github/screenshots/home.jpg) | ![Productos](.github/screenshots/productos.jpg) |
+| ![Home](.github/screenshots/home.png) | ![Productos](.github/screenshots/productos.png) |
 
 | Detalle del Producto | Carrito de Compras |
 |---|---|
-| ![Detalle](.github/screenshots/detalle.jpg) | ![Carrito](.github/screenshots/carrito.jpg) |
+| ![Detalle](.github/screenshots/detalle.png) | ![Carrito](.github/screenshots/carrito.png) |
 
 | Servicios de Impresión |
 |---|
-| ![Servicios](.github/screenshots/servicios.jpg) |
+| ![Servicios](.github/screenshots/servicios.png) |
 
 ### 🔐 Panel Administrativo (Backend)
 | Acceso (Login) | Panel de Control (Dashboard) |
@@ -45,7 +45,7 @@
 
 | Perfil de Usuario |
 |---|
-| ![Perfil](.github/screenshots/profile.jpg) |
+| ![Perfil](.github/screenshots/profile.png) |
 
 ## 📁 Estructura del Proyecto
 
