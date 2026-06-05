@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<style>
+.error_box{
+width:517px !important;
+}
+.login_form{
+background:#fff !important;
+height:270px !important;
+border-radius:6px;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IN Admin Panel </title>
+<script type="text/javascript" src="<?php  echo base_url();  ?>js/admin/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>js/admin/jquery.validate.min.js"></script>
+<script  type="text/javascript" src="<?php  echo base_url();  ?>js/admin/niceforms.js"></script>
+
+
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+
+		$('#login_form').validate({
+	    rules: {
+	      username: {
+	        
+	        required: true
+	      },
+	      password: {
+	        required: true,
+	       
+	      },
+	     
+	    }
+			
+	  });
+}); 
+</script>
+
+<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/admin/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo base_url();?>css/admin/niceforms-default.css" />
+
+</head>
+
+<body>
+
+<div id="main_container">
+
+	
+
+     
+         <div class="login_form" >
+         
+         <h3>Admin Panel Login</h3>
+         
+        <!-- <a href="#" class="forgot_pass">Forgot password</a> --
+         <?php 
+       //debug( $this->session->userdata("success_message"));die;  ?>
+         
+               <?php
+			   if($this->session->userdata("error_box"))
+			   {
+						echo '<div class="error_box">';
+						echo $this->session->userdata("success_message");
+						echo '</div>';
+						
+			   
+			   }
+			   $this->session->unset_userdata("success_message");
+			   $this->session->unset_userdata("error_box");
+			   
+			   ?>
+                <form  method="post" class="contact-form"  id="login_form" action="<?php echo base_url(); ?>admin/admin/check_login">
+	
+				<fieldset>
+				<ol>
+					<li>
+					<div class="control-group">
+					<p>User Name<span class="red">*</span></p>
+							<input type="text" value=""name="username"  class="input-xlarge text">
+					</div>
+					</li>
+					
+					<li>
+					<p>Password<span class="red">*</span></p>
+							  <input type="password" class="input-xlarge text" name="password" >
+					</li>
+					
+					<li>
+					<div style="margin-left:130px;">
+						<span class="bt_green_lft"></span>
+							<input type="submit" value="Login"  class="submit_btn"/>		
+						<span class="bt_green_r"></span>
+					</div>
+					</li>
+		
+				</ol>
+				
+				</fieldset>
+              
+         </form>
+		 </div>
+         </div>  
+          
+	
+    
+    <div class="footer_login">
+    
+
+    	<div class="right_footer_login"><a href="http://indeziner.com"><img src="images/indeziner_logo.gif" alt="" title="" border="0" /></a></div>
+    
+    </div>
+
+</div>		

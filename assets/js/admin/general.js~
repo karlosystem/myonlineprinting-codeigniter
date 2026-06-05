@@ -1,0 +1,729 @@
+$(document).ready(function()
+{
+		  
+		  $('#add_main_slider').validate({
+			rules: 
+			{
+				  slider_name: 
+				  {
+					required: true
+				  },
+				  slider_image: 
+				  {
+					required: true
+				  }
+			},
+			
+		
+	  });
+		  $('#add_user_form').validate({
+		 
+				rules: {
+				  u_name: {
+					
+					required: true
+				  },
+				  u_password: 
+				  {
+					required: true,
+				   
+				  },
+				 u_comp: 
+				  {
+					required: true,
+				   
+				  },
+				   u_country: 
+				  {
+				   required: true
+				  },
+				    u_state: 
+				  {
+				   required: true
+				  },
+				   u_postcode: 
+				  {
+				   required: true,
+				   number:true
+				  },
+				   u_email: 
+				  {
+				   required: true
+				  },
+				   u_phone: 
+				  {
+				   required: true,
+				   number:true
+				  }
+				 
+				},
+				
+				
+				submitHandler: function(form) 
+				{
+					ajax_check_duplicate_email();
+				}
+			
+			
+		});
+		 
+		 
+		$('#add_page').validate({
+		 
+				rules: {
+				  page_name: {
+					
+					required: true
+				  },
+				  page_title: 
+				  {
+					required: true,
+				   
+				  }
+				
+				 
+				}
+			
+			
+		}); 
+		 
+		 $('#setting_form').validate({
+		 
+				rules: {
+				  b_email: {
+					
+					required: true
+				  },
+				  api_username: 
+				  {
+					required: true,
+				   
+				  },
+				 api_password: 
+				  {
+					required: true,
+				   
+				  },
+				   api_signature: 
+				  {
+				   required: true
+				  },
+				    environment: 
+				  {
+				   required: true
+				  }
+				 
+				}
+			
+			
+		});
+		 
+		 
+		 $('#password_form').validate({
+	    rules: {
+	      old_password: {
+	        
+	        required: true
+	      },
+	      new_password: 
+		  {
+	        required: true,
+	       
+	      },
+	      confirm_password: 
+		  {
+	       required: true
+	      }
+	    }
+			
+			
+	  });
+		
+		$('#p_cat_form').validate({
+			rules: 
+			{
+				  p_cat_name: 
+				  {
+					required: true
+				  }
+			},
+			
+		submitHandler: function(form) 
+		{
+			var p_cat_name = $("#p_cat_name").val(); 
+			var p_cat_id = $("#p_cat_id").val(); 
+			ajax_product_cat_name_chk(p_cat_name,p_cat_id);
+		}
+	
+	  });
+	  
+	
+	  $('#p_attribute_form').validate({
+			rules: 
+			{
+				  p_a_image:
+				  {
+					required: true,
+					accept: "jpg|jpeg|png|bmp"
+				  },
+				  p_cat_id: 
+				  {
+					required: true
+				  },
+				  p_a_name: 
+				  {
+					required: true
+				  },
+				  p_turnaround:
+				  {
+				  required: true
+				  },
+				 color_side: {
+					required: true
+				}
+				  
+			},
+			
+		submitHandler: function(form) 
+		{
+			var p_a_name = $("#p_a_name").val(); 
+			var p_a_id = $("#p_a_id").val(); 
+			var p_cat_id = $("#p_cat_id").val();
+			ajax_product_attribute_name_chk(p_a_name,p_a_id,p_cat_id);
+		}
+	
+	  });
+	  
+	  
+	    /*$('#p_qty_price_form').validate({
+			rules: 
+			{
+				  p_cat_id: 
+				  {
+					required: true
+				  }
+				  
+			},
+			
+		submitHandler: function(form) 
+		{
+			var p_a_name = $("#p_a_name").val(); 
+			var p_a_id = $("#p_a_id").val(); 
+			var p_cat_id = $("#p_cat_id").val();
+			ajax_product_attribute_name_chk(p_a_name,p_a_id,p_cat_id);
+		}
+	
+	  });*/
+	  
+	   $('#p_qty_form').validate({
+			rules: 
+			{
+				 
+				  p_cat_id: 
+				  {
+					required: true
+				  },
+				  p_qty_name: 
+				  {
+					required: true
+				  }
+				  
+			},
+			
+		submitHandler: function(form) 
+		{
+			var p_qty_name = $("#p_qty_name").val(); 
+			var p_qty_option_id = $("#p_qty_option_id").val(); 
+			var p_cat_id = $("#p_cat_id").val();
+			ajax_product_qty_option_chk(p_qty_name,p_qty_option_id,p_cat_id);
+		}
+	
+	  });
+	  
+	  $('#p_attribute_editform').validate({
+			rules: 
+			{
+				
+				  p_cat_id: 
+				  {
+					required: true
+				
+				  },
+				  p_a_name: 
+				  {
+					required: true
+				  }
+				  
+			},
+			
+		submitHandler: function(form) 
+		{
+			var p_a_name = $("#p_a_name").val(); 
+			var p_a_id = $("#p_a_id").val(); 
+			var p_cat_id = $("#p_cat_id").val();
+			ajax_product_attribute_name_chk(p_a_name,p_a_id,p_cat_id);
+		}
+	
+	  });
+	  
+
+	  
+	  $('#p_cat_editform').validate({
+			rules: 
+			{
+				  p_cat_name: 
+				  {
+					required: true
+				  }
+			},
+			
+		submitHandler: function(form) 
+		{
+			var p_cat_name = $("#p_cat_name").val(); 
+			var p_cat_id = $("#p_cat_id").val(); 
+			ajax_product_cat_name_chk(p_cat_name,p_cat_id);
+		}
+	
+	  });
+
+}); 
+
+
+function ajax_product_qty_option_chk(p_qty_name,p_qty_option_id,p_cat_id)
+{
+ 	url = base_url+"admin/products/check_duplicate_p_qty_option";
+	
+	$.ajax({
+		type: "POST",
+		url: url,
+		data: "p_qty_name="+p_qty_name+"&p_qty_option_id="+p_qty_option_id+"&p_cat_id="+p_cat_id,
+		success: function(msg) 
+		{
+			if($.trim(msg) == "exist")
+			{ 
+				$('#warning_box1').html('This product qty option under this product categories already exits, please try another.');
+				$('#warning_box1').addClass('warning_box');
+				$('#p_cat_name').select();	
+			} 
+			else 
+			{
+				document.p_qty_form.submit();
+			}
+		}								
+	});	
+}
+
+function ajax_product_cat_name_chk(p_cat_name,p_cat_id)
+{
+ 	url = base_url+"admin/products/check_duplicate_p_cat";
+	
+	$.ajax({
+		type: "POST",
+		url: url,
+		data: "p_cat_name="+p_cat_name+"&p_cat_id="+p_cat_id,
+		success: function(msg) 
+		{
+			if($.trim(msg) == "exist")
+			{ 
+				$('#warning_box1').html('This product categories already exits, please try another.');
+				$('#warning_box1').addClass('warning_box');
+				$('#p_cat_name').select();	
+			} 
+			else 
+			{
+				document.p_cat_form.submit();
+			}
+		}								
+	});	
+}
+
+
+function ajax_product_attribute_name_chk(p_a_name,p_a_id,p_cat_id)
+{
+ 	url = base_url+"admin/products/check_duplicate_p_attribute";
+	
+	$.ajax({
+		type: "POST",
+		url: url,
+		data: "p_a_name="+p_a_name+"&p_a_id="+p_a_id+"&p_cat_id="+p_cat_id,
+		success: function(msg) 
+		{
+			if($.trim(msg) == "exist")
+			{ 
+				$('#warning_box1').html('This product attribute already exits under this product categories, please try another.');
+				$('#warning_box1').addClass('warning_box');
+				$('#p_a_name').select();	
+			} 
+			else 
+			{
+				document.p_attribute_form.submit();
+			}
+		}								
+	});	
+}
+
+/**
+ * Function to change status of records 
+ *
+*/
+
+function changeStatus(table, column, value, uniqueNameCol, uniqueColValue)
+{
+
+	$.ajax({
+		type: "POST",
+		url: base_url+"admin/common/change_status",
+		data: "table="+table+"&column="+column+"&value="+value+"&uniqueNameCol="+uniqueNameCol+"&uniqueColValue="+uniqueColValue,
+		async: true,
+        success: function(msg)
+        {
+			window.location.reload();
+		},
+		error: function(jqXHR, textStatus, errorThrown)
+		{
+			alert("Error occured. Please try again later.");
+		}
+	 });	
+
+}
+
+
+
+function delete_item(table,uniqueNameCol)
+{
+	var s=document.getElementsByName("child_checkbox");
+	//alert(s);
+	var value = '';
+	var j=0;
+	var count = 0;
+		for(var i=0;i<s.length;i++)
+        {
+			j++;
+		  if(s[i].checked == true)
+            {
+                count++;
+                if(value == '')
+                {
+                        var value = s[i].value;
+                }
+                else
+                {
+                                value = value + ',' + s[i].value;
+                }
+            }
+        }
+		//alert(j);
+        if(count<1)
+        {
+               alert("Please select at least one record.");
+                return false;
+        }
+        
+        var ret=confirm("Are you sure to delete selected record(s).");
+        if(!ret){return false;}
+     
+      	url = base_url+'admin/common/delete_item';
+		//alert(url);
+        $.ajax({
+	        type: "POST",
+	        url: url,
+	        data: "table="+table+"&uniqueNameCol="+uniqueNameCol+"&value="+value,
+	        async: true,
+	        success: function(msg)
+	        { 
+				//alert (msg);
+					if(msg==1)
+					{
+						$('#warning_box1').html('Item deleted successfully.');
+						$('#warning_box1').addClass('valid_box');
+						
+					}
+					window.setTimeout(function(){location.reload()},3000);
+				
+			},
+			error: function(jqXHR, textStatus, errorThrown)
+			{
+				alert("Error occured. Please try again later.");
+			}
+		
+        });
+}
+
+
+
+function checkall()
+{
+	var is_check=document.getElementById('main_checkbox').checked;
+	var s=document.getElementsByName("child_checkbox");
+	if(is_check==true)
+			{
+	
+					var value = '';
+					var count = 0;
+					for(var i=0;i<s.length;i++)
+					{
+
+						s[i].checked=true;
+
+					}
+			}
+			else
+			{
+				for(var i=0;i<s.length;i++)
+					{
+
+						s[i].checked=false;
+
+					}	
+				
+				
+			}
+}
+
+function ajax_check_duplicate_email()
+{
+	var email=$("#u_email").val();
+	url = base_url+"admin/users/check_duplicate_email";
+	$.ajax({
+	        type: "POST",
+	        url: url,
+	        data: "email="+email,
+	        async: true,
+	        success: function(msg)
+	        { 
+				if(msg==1)
+				{	
+					alert("email already exists.try another email");
+					return false;
+				}
+				else{
+					document.add_user_form.submit();
+	
+				}
+
+				
+			},
+			error: function(jqXHR, textStatus, errorThrown)
+			{
+				alert("Error occured. Please try again later.");
+			}
+		
+        });
+
+	
+}
+
+
+function get_by_id(c_id)
+{
+	$("#loader").css("display","block");
+	var table="exp_tbl_states";
+	var col="country_id";
+	var value=c_id;
+	
+	url = base_url+'admin/common/fetch_by_id';
+		
+	$.ajax({
+	        type: "POST",
+	        url: url,
+	        data: "table="+table+"&col="+col+"&value="+value,
+	        async: true,
+	        success: function(msg)
+	        { 
+				if(msg)
+				{	//alert (msg);
+					$("#loader").css("display","none");
+					$("#u_state").html(msg);
+					
+				}
+				
+			
+				
+			},
+			error: function(jqXHR, textStatus, errorThrown)
+			{
+				alert("Error occured. Please try again later.");
+			}
+		
+        });
+
+}
+
+
+
+function get_attribute_qty_id(p_c_id)
+{
+	
+	url = base_url+'admin/products/get_all_attribute';
+		
+	$.ajax({
+	        type: "POST",
+	        url: url,
+	        data: "p_c_id="+p_c_id,
+	        async: true,
+	        success: function(msg)
+	        { 
+				//alert (msg);
+				if(msg)
+				{	
+					$("#loader").css("display","none");
+					$("#u_attribute").html(msg);
+					
+				}
+				
+			
+				
+			},
+			error: function(jqXHR, textStatus, errorThrown)
+			{
+				alert("Error occured. Please try again later.");
+			}
+		
+        });
+
+}
+
+function get_other_attibute(p_a_id,p_c_id)
+{
+	
+	url = base_url+'admin/products/get_other_attribute';
+		
+	$.ajax({
+	        type: "POST",
+	        url: url,
+	        data: "p_a_id="+p_a_id+"&p_c_id="+p_c_id,
+	        async: true,
+	        success: function(msg)
+	        { 
+				//alert (msg);
+				if(msg)
+				{	
+					$("#loader").css("display","none");
+					var all_arr = msg.split("~");
+					$("#u_p_turnaround").html(all_arr[0]);
+					$("#u_p_color").html(all_arr[1]);
+					$("#u_p_qty").html(all_arr[2]);
+					
+				}
+				
+			
+				
+			},
+			error: function(jqXHR, textStatus, errorThrown)
+			{
+				alert("Error occured. Please try again later.");
+			}
+		
+        });
+
+}
+
+function save_all_attr_qty_option()
+{
+
+	var p_cat_id = $("#p_cat_id").val();
+	var p_a_type = $("#p_a_type").val();
+
+	var p_turnaround = $("#p_turnaround").val();
+	var p_color = $("#p_color").val();
+	var p_o_qty = $("#p_o_qty").val();
+	var p_qty = $("#p_qty").val();
+	var p_price = $("#p_price").val();
+	
+	url = base_url+'admin/products/save_attribute_qty_price';
+		
+	$.ajax({
+	        type: "POST",
+	        url: url,
+	        data: "p_cat_id="+p_cat_id+"&p_a_type="+p_a_type+"&p_turnaround="+p_turnaround+"&p_color="+p_color+"&p_o_qty="+p_o_qty+"&p_qty="+p_qty+"&p_price="+p_price,
+	        async: true,
+	        success: function(msg)
+	        { 
+		
+				if($.trim(msg) == "exist")
+				{ 
+					$("#loader").css("display","none");
+					//$('#insert_box').html('Error in  saved price.');
+					//$('#insert_box').addClass('valid_box');
+				} 
+				else
+				{
+					$("#loader").css("display","none");
+					//$('#insert_box').html('Price saved successfully. ');
+					//$('#insert_box').addClass('valid_box');
+				}
+			}
+		
+        });
+
+}
+
+
+function delete_main_slider(table,uniqueNameCol)
+{
+	
+	var s=document.getElementsByName("child_checkbox");
+	//alert(s);
+	var value = '';
+	var j=0;
+	var count = 0;
+		for(var i=0;i<s.length;i++)
+        {
+			j++;
+		  if(s[i].checked == true)
+            {
+                count++;
+                if(value == '')
+                {
+                        var value = s[i].value;
+                }
+                else
+                {
+                                value = value + ',' + s[i].value;
+                }
+            }
+        }
+		//alert(j);
+        if(count<1)
+        {
+               alert("Please select at least one record.");
+                return false;
+        }
+        
+        var ret=confirm("Are you sure to delete selected record(s).");
+        if(!ret)
+		{
+			
+			return false;
+			
+		}
+				$(".loader").css("display","block");
+				url = base_url+'admin/slider/delete_main_slider';
+				//alert(url);
+				$.ajax({
+					type: "POST",
+					url: url,
+					data: "table="+table+"&uniqueNameCol="+uniqueNameCol+"&value="+value,
+					async: true,
+					success: function(msg)
+					{ 
+							//alert (msg);
+							if(msg==1)
+							{
+								
+								$('#warning_box1').html('Item deleted successfully.');
+								$('#warning_box1').addClass('valid_box');
+								$(".loader").css("display","none");
+								
+							}
+							window.setTimeout(function(){location.reload()},3000);
+						
+					},
+					error: function(jqXHR, textStatus, errorThrown)
+					{
+						alert("Error occured. Please try again later.");
+					}
+				
+				});
+		
+}

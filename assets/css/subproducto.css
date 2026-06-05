@@ -1,0 +1,87 @@
+.price
+{
+	color: #444444;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    padding: 0 11px;
+    text-decoration: none;
+
+}
+.price:hover {
+    color: #01A4C5;
+    text-decoration: underline;
+}
+.check + p
+{
+	
+	background:transparent  url("../../../images/righttick.png") ;
+	background-repeat:no-repeat;
+	background-position:18px 3px;
+}
+.product_type {
+    background: none repeat scroll 0 0 #0083A9;
+    border: 1px solid #999999;
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+    width:auto;
+    font-size: 90%;
+    font-weight: bold;
+    height: 33px;
+    margin-right: 3px;
+    padding: 4px;
+    text-align: center;
+    width:auto;
+    
+}
+.product_type_p{
+text-align:center;
+width:auto;
+}
+.att_radio{
+	cursor:pointer;
+}
+
+.turnaround_sec{
+	width:580px;
+	float:left;
+	border:1px solid #ccc;
+	margin:3px 0 0px;
+}
+.turnaround_sec ul{
+	list-style:none;
+	margin: 13px 0;
+}
+.turnaround_sec ul li{
+	background:url(../images/arrow02.png) 22px 9px no-repeat;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#000000;
+	line-height:28px;
+	padding: 0 33px 0 42px;
+}
+.turnaround_sec ul li ul{
+	list-style:none;
+	margin: 3px 0;
+}
+.turnaround_sec ul li ul li{
+	background:none;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#000000;
+	line-height:28px;
+	padding: 0 33px 0 7px;
+}
+.turnaround_sec ul li ul li input{
+	width:auto;
+	float:left;
+	margin: 7px 6px 0 0px;
+}
+.turnaround_sec ul li ul li p{
+	width:auto;
+	float:left;
+	margin: 0 5px 0 0;
+}
+.turnaround_sec ul li ul li img{
+	margin:-6px 0 0px;
+}

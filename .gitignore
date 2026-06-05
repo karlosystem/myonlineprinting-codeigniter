@@ -1,0 +1,12 @@
+cat << 'EOF' > .gitignore
+# Archivos pesados y temporales
+error_log
+public_html/copyserviceusa.com/error_log
+*.zip
+*.sql
+
+# Dependencias y conectores
+vendor/
+node_modules/
+assets/ckfinder/core/connector/php/vendor/
+EOF
