@@ -6,10 +6,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'dbo733880751',
-	'password' => 'WgR9bnhid2yv5Hy',
-	'database' => 'dbcopiserviceonline', //db733880751
+	'hostname' => '',
+	'username' => '',
+	'password' => '',
+	'database' => '', 
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
